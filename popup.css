@@ -1,0 +1,55 @@
+body{
+	width : 233px;
+	height : 275px;
+	color: black;
+    background-color: #5e42a6;
+}
+@font-face {
+    font-family: Coolvetica;
+    src: url("coolvetica.ttf");
+}
+h1 {
+    font-family: Coolvetica;
+    font-size: 235%;
+    text-align: center;
+}
+label{
+    font-family: Coolvetica;
+    font-size: 225%;
+    float: left;
+}
+#icons{
+    width: 144px;
+    height: 144px;
+    position: relative;
+    left: 50px;
+}
+.box{
+    position: absolute;
+    width: 55px;
+    height: 55px;
+}
+#topleft{
+    top: 0px;
+    left: 0px;
+    margin-bottom: 17px;
+    margin-right: 17px;
+}
+#topright{
+    top: 0px;
+    left: 55px;
+    margin-bottom: 17px;
+    margin-left: 17px;
+}
+#bottomleft{
+    top: 55px;
+    left: 0px;
+    margin-top: 17px;
+    margin-right: 17px;
+}
+#bottomright{
+    top: 55px;
+    left: 55px;
+    margin-top: 17px;
+    margin-left: 17px;
+}

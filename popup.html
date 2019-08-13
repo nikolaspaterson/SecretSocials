@@ -4,79 +4,31 @@
 	<head>
 		<title>Secret Socials</title>
 		<script src = "popup.js"></script>
+		<link rel="stylesheet" type="text/css" href="popup.css">
 	</head>
-	<style>
-body{
-	width : 175px;
-	height : 200px;
-	color: slategray;
-	background-color: indigo;
-}</style>
 
 
 	<body>  
-		<h1 align = "center">Secret Socials</h1>
-
-	<style>
-		div.row {
-		float : left;
-
-	}</style>
-
-
-		<div class = "row">
-
-			<div class = "column">
-				<img id = "instagram" src = "Instagram.png" width = "58" height = "58" hspace = "19" vspace = "10"/>
-			</div>
-
-			<div class = "column">
-				<img id = "twitter" src = "Twitter.png" width = "58" height = "58" hspace = "19" vspace = "10"/>
-			</div>
+		<h1>Secret Socials</h1>
+	<div id = "icons">
+		<div class = "box" id = "topleft">
+			<img src = "instagram-brands.svg"/>
 		</div>
-
-		<div class = "row">
-			<div class = "column">
-				<img id = "facebook" src = "Facebook.png" width = "58" height = "58" vspace = "10"/>
-			</div>
-
-			<div class = "column">
-				<img id = "youtube" src = "YouTube.png" width = "58" height = "58" vspace = "10"/>
-			</div>
-
+		<div class = "box" id = "topright">
+			<img src = "twitter-square-brands.svg"/>
 		</div>
+		<div class = "box" id = "bottomleft">
+			<img src = "facebook-square-brands.svg"/>
+		</div>
+		<div class = "box" id = "bottomright">
+			<img src = "youtube-square-brands.svg"/>
+		</div>
+	</div>
+
+	<label style="display:block">
+			<input style="vertical-align:middle" type="checkbox">
+			<span  style="vertical-align:middle">Disable</span>
+	</label>
 
 	</body>
-
-	<div class = "enable">
-	    <form>
-	    	<font size = "4">Disable</font><input id = "checkbox" type="checkbox"/>
-        </form>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>
