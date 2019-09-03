@@ -8,7 +8,7 @@ chrome.runtime.onConnect.addListener(function(port) {
     		var activeTab = tabs[0];
     		var activeTabUrl = activeTab.url;
     		port.postMessage({answer : activeTabUrl});
-    	}); // end getURL
+    	}); //end getURL
     } //end if
-  }); // end port
+  }); //end port
 }); //end addlistener

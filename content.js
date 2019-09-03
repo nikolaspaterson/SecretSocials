@@ -14,16 +14,36 @@ elem2.childNodes.remove();
 function youtube(){
 	//document.getElementById("metadata-line").getElementsByTagName("span")[0].innerHTML="";
 	//var views = document.querySelector('div.style-scope');
-
-	var metadata = document.getElementById("metadata-line");
+	//document.getElementById("metadata-line").innerHTML = "";
+	/*var metadata = document.getElementById("metadata-line");
 	console.log(metadata);
 	var views = metadata.childNodes[0];
 	console.log(views);
 	console.log(metadata.childNodes[1]);
-	//views.remove();
+	views.remove();
 	/**if (views != null){
 		views.remove();
 	}**/
+
+	//-----Home page-----
+	/*var views = document.getElementById("metadata-line");
+	var split = views.getElementsByClassName(style-ScopedCredential.ytd-grid-video-renderer);
+	console.log(split);*/
+	//-----Video-----
+	//Removes number of views on current video
+	document.getElementById("info-text").innerHTML = "";
+	//remove likes & dislikes
+	document.querySelectorAll(".style-scope.ytd-toggle-button-renderer.style-text")[1].innerText = ""; //Likes
+	document.querySelectorAll(".style-scope.ytd-toggle-button-renderer.style-text")[3].innerText = ""; //Dislikes
+	document.getElementById("sentiment").innerHTML = ""; //Like & dislike bar
+	//remove number of subscribers
+	document.querySelectorAll(".style-scope.yt-formatted-string.deemphasize")[0].innerText = "";
+		//remove views on recommended videos
+		//remove number of comments
+		//remove number of likes on comments
+		//remove number of replies to comments
+
+	//-----Channel-----
 }
 
 
@@ -31,7 +51,7 @@ function youtube(){
 var port = chrome.runtime.connect({name: "shareTabInfo"}); //Create groupchat with secret password
 
 port.postMessage({question: "Tell me the url"}); // ask group for the url
-console.log("asked for question");
+console.log("asked for URL");
 
 port.onMessage.addListener(function(msg) { //when message is recieved
 	console.log("did I get a response?");
@@ -41,6 +61,6 @@ port.onMessage.addListener(function(msg) { //when message is recieved
 		console.log(msg.answer);
 		setInterval(instagram, 1000);
 	}else if(msg.answer.includes("youtube")){
-		setInterval(youtube, 50);
+		setInterval(youtube, 500);
 	}
 });
