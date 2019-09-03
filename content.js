@@ -36,11 +36,15 @@ function youtube(){
 	document.querySelectorAll(".style-scope.ytd-toggle-button-renderer.style-text")[1].innerText = ""; //Likes
 	document.querySelectorAll(".style-scope.ytd-toggle-button-renderer.style-text")[3].innerText = ""; //Dislikes
 	document.getElementById("sentiment").innerHTML = ""; //Like & dislike bar
-	//remove number of subscribers
+	//remove number of subscribers on subscribe button
 	document.querySelectorAll(".style-scope.yt-formatted-string.deemphasize")[0].innerText = "";
 		//remove views on recommended videos
+	document.querySelectorAll(".style-scope.ytd-video-meta-block")[0].innerText = ""; //only works on first video
 		//remove number of comments
+	document.querySelectorAll(".count-text.style-scope.ytd-comments-header-renderer")[0].innerText = "Comments";
 		//remove number of likes on comments
+	console.log(document.querySelectorAll(".style-scope.ytd-comment-action-buttons-renderer"));
+	document.querySelectorAll(".style-scope.ytd-comment-action-buttons-renderer")[0].innerText = ""; //only works on first comment
 		//remove number of replies to comments
 
 	//-----Channel-----
