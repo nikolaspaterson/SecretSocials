@@ -38,15 +38,29 @@ function youtube(){
 	document.getElementById("sentiment").innerHTML = ""; //Like & dislike bar
 	//remove number of subscribers on subscribe button
 	document.querySelectorAll(".style-scope.yt-formatted-string.deemphasize")[0].innerText = "";
-		//remove views on recommended videos
-	document.querySelectorAll(".style-scope.ytd-video-meta-block")[0].innerText = ""; //only works on first video
-		//remove number of comments
+	//remove views on recommended videos
+	var recommendVideos = document.querySelectorAll(".style-scope.ytd-video-meta-block");
+	for (var i = 0; i < recommendVideos.length; i++){
+		if(recommendVideos[i].id.localeCompare("metadata-line") == 0){
+			recommendVideos[i].innerText = "";
+		}
+	}
+	//remove number of comments
 	document.querySelectorAll(".count-text.style-scope.ytd-comments-header-renderer")[0].innerText = "Comments";
-		//remove number of likes on comments
-	console.log(document.querySelectorAll(".style-scope.ytd-comment-action-buttons-renderer"));
-	document.querySelectorAll(".style-scope.ytd-comment-action-buttons-renderer")[0].innerText = ""; //only works on first comment
-		//remove number of replies to comments
-
+	//remove number of likes on comments
+	var commentLikes = document.querySelectorAll(".style-scope.ytd-comment-action-buttons-renderer");
+	for(var i = 0; i < commentLikes.length; i++){
+		if(commentLikes[i].id.localeCompare("vote-count-middle") == 0){
+			commentLikes[i].innerText = ""
+		}
+	}
+	//remove number of replies to comments
+	var commentReplies = document.querySelectorAll(".style-scope.ytd-comment-replies-renderer");
+	for (var i = 0; i < commentReplies.length; i++){
+		if(commentReplies[i].id.localeCompare("more-replies")){
+			commentReplies[i].innerHTML = "View replies";
+		}
+	}
 	//-----Channel-----
 }
 
