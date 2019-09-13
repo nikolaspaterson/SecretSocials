@@ -1,3 +1,6 @@
+const INSTA_PHOTO_LIKES = ".Igw0E.IwRSH.eGOV_.ybXk5.vwCYk";
+const INSTA_VIDEO_VIEWS = ".EDfFK.ygqzn";
+
 const YT_LIKE_AND_DISLIKE = ".style-scope.ytd-toggle-button-renderer.style-text";
 const YT_LIKE_AND_DISLIKE_BAR = "sentiment";
 const YT_RECOMMENDED_VIDEO_VIEWS = ".style-scope.ytd-video-meta-block";
@@ -10,20 +13,20 @@ const YT_NUMBER_OF_COMMENT_REPLIES_ID = "more-replies";
 
 
 function instagram(){
-	
-	var likes = document.querySelectorAll('div.Igw0E'); //Removes number of likes and liked by specific person
-	console.log("likes are");
-	console.log(likes.length);
-	likes.remove();
-	
-	var views = document.querySelectorAll('div.HbPOm'); //Removes number of video views
-	console.log(views.length);
-	views.remove();
+
+	var photoLikes = document.querySelectorAll(INSTA_PHOTO_LIKES);
+	for (var i = 0; i < photoLikes.length; i++){
+		photoLikes[i].innerText = "";
+	}
+	var videoViews = document.querySelectorAll(INSTA_VIDEO_VIEWS);
+	for(var i = 0; i < videoViews.length; i++){
+		videoViews[i].innerText = "";
+	}
+	var commentLikes = document.querySelectorAll("._7UhW9.PIoXz.MMzan._0PwGv.uL8Hv");
+	for(var i = 0; i < commentLikes.length; i++){
+		commentLikes[i].querySelectorAll(".FH9sR")[1].innerHTML = "";
+	}
 }
-/*
-var elem2 = document.querySelector('div.qn-0x');
-elem2.childNodes.remove();
-*/
 
 function youtube(selector){
 	//document.getElementById("metadata-line").getElementsByTagName("span")[0].innerHTML="";
