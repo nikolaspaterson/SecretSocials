@@ -26,6 +26,18 @@ function instagram(){
 	for (var i = 0; i < commentLikes.length; i++){
 		commentLikes[i].querySelectorAll(".FH9sR")[1].innerHTML = "";
 	}
+	var followersAndFollowing = document.querySelector(".k9GMp");
+	if(followersAndFollowing.children[2] != null && followersAndFollowing.children[1] != null){
+		followersAndFollowing.children[2].remove();
+		followersAndFollowing.children[1].remove();
+	}
+
+	var hoverLikes = document.querySelectorAll(".-V_eO");
+	for(var i = 0; i < hoverLikes.length; i++){
+		if (hoverLikes[i].innerText != null){
+			hoverLikes[i].innerText = null;
+		}
+	}
 }
 
 function youtube(){
