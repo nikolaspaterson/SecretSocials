@@ -122,15 +122,12 @@ function youtube(){
 			for (var i = 0; i < communityComments.length; i++){
 				communityComments[i].innerText = "View all comments";
 			}
-		}
-
-		if (selector.includes("/channels")){
+		} else if (selector.includes("/channels")){
 			var featuredChannels = document.querySelectorAll("#thumbnail-attribution");
 			for (var i = 0; i < featuredChannels.length; i++){
 				featuredChannels[i].innerText = null;
 			}
-		}
-		if (selector.includes("/about")){
+		} else if (selector.includes("/about")){
 			var channelStats = document.querySelector("#right-column");
 			if (channelStats.children[2] != null && channelStats.children[2].innerText.includes("views")){
 				channelStats.children[2].remove();
