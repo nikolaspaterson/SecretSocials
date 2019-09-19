@@ -43,16 +43,6 @@ function instagram(){
 function youtube(){
 	var selector = location.href;
 
-	//-----Home page-----
-
-	var videoPreview = document.querySelectorAll("#metadata-line");
-	for (var i = 0; i < videoPreview.length; i++){
-		var viewsData = videoPreview[i].innerText.split("\n");
-		if (viewsData[0].includes("views")){
-			videoPreview[i].innerText = viewsData[1];
-		}
-	}
-	
 	//-----Video-----
 	
 	/*look into replacing message passing with location.href, maybe in background use setinterval to monitor for url change
@@ -92,10 +82,7 @@ function youtube(){
 				commentReplies[i].innerHTML = "View replies";
 			}
 		}
-	} 
-	//-----Channel-----
-
-	if (selector.includes("/channel/") ||  selector.includes("/user/")){
+	} else if (selector.includes("/channel/") ||  selector.includes("/user/")){ //-----Channel-----
 		//remove number of subscribers on channel header
 		var channelSubscribers = document.getElementById("subscriber-count");
 		if (channelSubscribers != null){
@@ -123,14 +110,28 @@ function youtube(){
 				communityComments[i].innerText = "View all comments";
 			}
 		} else if (selector.includes("/channels")){
-			var featuredChannels = document.querySelectorAll("#thumbnail-attribution");
+			var subscriptions = document.querySelectorAll("#thumbnail-attribution");
+			var featuredChannels = document.querySelectorAll("#subscribers");
+			var featuredChannelsDot = document.querySelectorAll("#dot");
 			for (var i = 0; i < featuredChannels.length; i++){
 				featuredChannels[i].innerText = null;
+				featuredChannelsDot[i].innerText = null;
+			}
+			for (var i = 0; i < subscriptions.length; i++){
+				subscriptions[i].innerText = null;
 			}
 		} else if (selector.includes("/about")){
 			var channelStats = document.querySelector("#right-column");
 			if (channelStats.children[2] != null && channelStats.children[2].innerText.includes("views")){
 				channelStats.children[2].remove();
+			}
+		}
+	} else { //-----Home Page------
+		var videoPreview = document.querySelectorAll("#metadata-line");
+		for (var i = 0; i < videoPreview.length; i++){
+			var viewsData = videoPreview[i].innerText.split("\n");
+			if (viewsData[0].includes("views")){
+				videoPreview[i].innerText = viewsData[1];
 			}
 		}
 	}
