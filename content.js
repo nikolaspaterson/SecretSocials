@@ -8,8 +8,6 @@ const YT_RECOMMENDED_VIDEO_VIEWS_ID = "metadata-line";
 const YT_NUMBER_OF_COMMENTS = ".count-text.style-scope.ytd-comments-header-renderer";
 const YT_NUMBER_OF_COMMENT_LIKES = ".style-scope.ytd-comment-action-buttons-renderer";
 const YT_NUMBER_OF_COMMENT_LIKES_ID = "vote-count-middle";
-const YT_NUMBER_OF_COMMENT_REPLIES = ".style-scope.ytd-comment-replies-renderer";
-const YT_NUMBER_OF_COMMENT_REPLIES_ID = "more-replies";
 
 
 function instagram(){
@@ -44,12 +42,8 @@ function youtube(){
 	var selector = location.href;
 
 	//-----Video-----
-	
-	/*look into replacing message passing with location.href, maybe in background use setinterval to monitor for url change
-	  between the same company like youtube.com/1234 to youtube.com/9876.*/
 
 	if (selector.includes("/watch?v=")){ 
-		console.log("Watching Video");
 		//Removes number of views on current video
 		var videoViews = document.querySelectorAll("#count"); //searching for an element with ID count
 		videoViews[1].innerText = "";
@@ -76,10 +70,11 @@ function youtube(){
 			}
 		}
 		//remove number of replies to comments
-		var commentReplies = document.querySelectorAll(YT_NUMBER_OF_COMMENT_REPLIES);
+		var commentReplies = document.querySelectorAll(".style-scope.ytd-button-renderer");
 		for (var i = 0; i < commentReplies.length; i++){
-			if (commentReplies[i].id.localeCompare(YT_NUMBER_OF_COMMENT_REPLIES_ID)){
+			if (commentReplies[i].id.localeCompare("text") == 0 && commentReplies[i].className.localeCompare("style-scope ytd-button-renderer") == 0){
 				commentReplies[i].innerHTML = "View replies";
+				commentReplies[i].innerText = "View replies";
 			}
 		}
 	} else if (selector.includes("/channel/") ||  selector.includes("/user/")){ //-----Channel-----
@@ -127,6 +122,7 @@ function youtube(){
 			}
 		}
 	} else { //-----Home Page------
+		//Removes views from all videos on Home page
 		var videoPreview = document.querySelectorAll("#metadata-line");
 		for (var i = 0; i < videoPreview.length; i++){
 			var viewsData = videoPreview[i].innerText.split("\n");

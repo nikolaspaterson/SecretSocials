@@ -12,3 +12,12 @@ chrome.runtime.onConnect.addListener(function(port) {
     } //end if
   }); //end port
 }); //end addlistener
+
+
+/*
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  if(changeInfo.url && (changeInfo.url.includes(".youtube.com") || changeInfo.url.includes(".instagram.com"))){
+    alert("URL changed to " + changeInfo.url + " ---From background");
+  }
+});
+*/
