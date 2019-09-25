@@ -50,9 +50,11 @@ function youtube(){
 		//Remove number of subscribers
 		document.getElementById("owner-sub-count").innerHTML = "";
 		//remove likes & dislikes
-		document.querySelectorAll(YT_LIKE_AND_DISLIKE)[1].innerText = ""; //Likes
-		document.querySelectorAll(YT_LIKE_AND_DISLIKE)[3].innerText = ""; //Dislikes
-		document.getElementById(YT_LIKE_AND_DISLIKE_BAR).innerHTML = ""; //Like & dislike bar
+		if (document.querySelectorAll(YT_LIKE_AND_DISLIKE) != null && document.querySelectorAll(YT_LIKE_AND_DISLIKE)[1].innerText != null){
+			document.querySelectorAll(YT_LIKE_AND_DISLIKE)[1].innerText = null; //Likes
+			document.querySelectorAll(YT_LIKE_AND_DISLIKE)[3].innerText = null; //Dislikes
+			document.getElementById(YT_LIKE_AND_DISLIKE_BAR).innerText = null; //Like & dislike bar
+		}
 		//remove views on recommended videos
 		var recommendVideos = document.querySelectorAll(YT_RECOMMENDED_VIDEO_VIEWS);
 		for (var i = 0; i < recommendVideos.length; i++){
@@ -61,7 +63,10 @@ function youtube(){
 			}
 		}
 		//remove number of comments
-		document.querySelectorAll(YT_NUMBER_OF_COMMENTS)[0].innerText = "Comments";
+		var youtubeCommentHeader = document.querySelector(YT_NUMBER_OF_COMMENTS);
+		if (youtubeCommentHeader != null && youtubeCommentHeader.innerText.localeCompare("Comments") != 0){
+			youtubeCommentHeader.innerText = "Comments";
+		}
 		//remove number of likes on comments
 		var commentLikes = document.querySelectorAll(YT_NUMBER_OF_COMMENT_LIKES);
 		for (var i = 0; i < commentLikes.length; i++){
@@ -117,7 +122,7 @@ function youtube(){
 			}
 		} else if (selector.includes("/about")){
 			var channelStats = document.querySelector("#right-column");
-			if (channelStats.children[2] != null && channelStats.children[2].innerText.includes("views")){
+			if (channelStats != null && channelStats.children[2].innerText.includes("views")){
 				channelStats.children[2].remove();
 			}
 		}
