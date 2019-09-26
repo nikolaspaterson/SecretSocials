@@ -138,6 +138,20 @@ function youtube(){
 	}
 }
 
+function twitter(){
+	var selector = location.href;
+	if(selector.includes("/home")){
+		var replies = document.querySelectorAll(".css-1dbjc4n.r-xoduu5.r-1udh08x");
+		for (var i = 0; i <replies.length; i++){
+			replies[i].innerText = null;
+		}
+	}
+	var trending = document.querySelectorAll(".css-901oao.r-111h2gw.r-1qd0xha.r-a023e6.r-16dba41.r-ad9z0x.r-bcqeeo.r-vmopo1.r-qvutc0");
+	for (var i = 0; i < trending.length; i++){
+		trending[i].innerText = null;
+	}
+}
+
 var port = chrome.runtime.connect({name: "shareTabInfo"}); //Create groupchat with secret password
 
 port.postMessage({question: "Tell me the url"}); // ask group for the url
@@ -152,5 +166,7 @@ port.onMessage.addListener(function(msg) { //when message is recieved
 		setInterval(instagram, 1000);
 	}else if(msg.answer.includes("youtube")){
 		setInterval(youtube, 500);
+	}else if (msg.answer.includes("twitter")){
+		setInterval(twitter, 1000);
 	}
 });
