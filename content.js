@@ -132,8 +132,14 @@ function youtube(){
 		for (var i = 0; i < videoPreview.length; i++){
 			var viewsData = videoPreview[i].innerText.split("\n");
 			if (viewsData[0].includes("views")){
-				videoPreview[i].innerText = viewsData[1];
+				videoPreview[i].innerText = viewsData[1]; //Keeps date in metadata line but hides views
+			}else if (viewsData[0].includes("watching")){
+				videoPreview[i].innerText = null; //hides live viewers on livestreams
 			}
+		}
+		var latestPost = document.querySelectorAll(".style-scope.ytd-comment-action-buttons-renderer");
+		for(var i = 0; i < latestPost.length; i++){
+			latestPost[i].innerText = null;
 		}
 	}
 }
