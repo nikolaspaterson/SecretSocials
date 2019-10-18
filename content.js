@@ -146,15 +146,21 @@ function youtube(){
 
 function twitter(){
 	var selector = location.href;
-	if(selector.includes("/home")){
-		var replies = document.querySelectorAll(".css-1dbjc4n.r-xoduu5.r-1udh08x");
-		for (var i = 0; i <replies.length; i++){
-			replies[i].innerText = null;
-		}
+	
+	var replies = document.querySelectorAll(".css-1dbjc4n.r-xoduu5.r-1udh08x");
+	for (var i = 0; i <replies.length; i++){
+		replies[i].innerText = null;
 	}
+	
 	var trending = document.querySelectorAll(".css-901oao.r-111h2gw.r-1qd0xha.r-a023e6.r-16dba41.r-ad9z0x.r-bcqeeo.r-vmopo1.r-qvutc0");
 	for (var i = 0; i < trending.length; i++){
 		trending[i].innerText = null;
+	}
+	var followersAndFollowing = document.querySelectorAll(".css-1dbjc4n.r-18u37iz");
+	for (var i = 0; i < followersAndFollowing.length; i++){
+		if(followersAndFollowing[i] != null && followersAndFollowing[i].className.localeCompare("css-1dbjc4n r-18u37iz") == 0){
+			followersAndFollowing[i].remove();
+		}
 	}
 }
 
